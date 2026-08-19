@@ -210,12 +210,6 @@ make check
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.5 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.100 |
 
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.100.0 |
-
 ## Modules
 
 No modules.
@@ -230,23 +224,23 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_description"></a> [description](#input\_description) | Security group description. Defaults to 'Managed by Terraform' if not specified. | `string` | `"Managed by Terraform"` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the security group.<br/>Conflicts with name\_prefix. Either name or name\_prefix must be specified, but not both. | `string` | `null` | no |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | Creates a unique name beginning with the specified prefix.<br/>Conflicts with name. Either name or name\_prefix must be specified, but not both. | `string` | `null` | no |
-| <a name="input_description"></a> [description](#input\_description) | Security group description. Defaults to 'Managed by Terraform' if not specified. | `string` | `"Managed by Terraform"` | no |
-| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID where the security group will be created. Must be a valid VPC ID format (vpc-xxxxxxxx). | `string` | n/a | yes |
 | <a name="input_revoke_rules_on_delete"></a> [revoke\_rules\_on\_delete](#input\_revoke\_rules\_on\_delete) | Instruct Terraform to revoke all of the Security Group's attached ingress and egress rules<br/>before deleting the security group itself. This is normally not needed, but can help in certain situations. | `bool` | `false` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to assign to the security group. These tags will be merged with default tags. | `map(string)` | `{}` | no |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID where the security group will be created. Must be a valid VPC ID format (vpc-xxxxxxxx). | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_id"></a> [id](#output\_id) | The ID of the security group. |
 | <a name="output_arn"></a> [arn](#output\_arn) | The ARN of the security group. |
+| <a name="output_id"></a> [id](#output\_id) | The ID of the security group. |
 | <a name="output_name"></a> [name](#output\_name) | The name of the security group. |
-| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | The VPC ID where the security group was created. |
 | <a name="output_owner_id"></a> [owner\_id](#output\_owner\_id) | The AWS account ID of the owner of the security group. |
 | <a name="output_tags_all"></a> [tags\_all](#output\_tags\_all) | A map of tags assigned to the resource, including those inherited from the provider default\_tags. |
+| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | The VPC ID where the security group was created. |
 <!-- END_TF_DOCS -->
 
 
