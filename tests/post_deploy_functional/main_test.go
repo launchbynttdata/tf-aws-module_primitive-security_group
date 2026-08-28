@@ -13,25 +13,25 @@
 package test
 
 import (
-        "testing"
+	"testing"
 
-        "github.com/launchbynttdata/lcaf-component-terratest/lib"
-        "github.com/launchbynttdata/lcaf-component-terratest/types"
-        "github.com/launchbynttdata/tf-aws-module_primitive-security_group/tests/testimpl"
+	"github.com/launchbynttdata/lcaf-component-terratest/lib"
+	"github.com/launchbynttdata/lcaf-component-terratest/types"
+	"github.com/launchbynttdata/tf-aws-module_primitive-security_group/tests/testimpl"
 )
 
 const (
-        testConfigsExamplesFolderDefault = "../../examples"
-        infraTFVarFileNameDefault        = "test.tfvars"
+	testConfigsExamplesFolderDefault = "../../examples"
+	infraTFVarFileNameDefault        = "test.tfvars"
 )
 
 func TestSecurityGroupModule(t *testing.T) {
 
-        ctx := types.CreateTestContextBuilder().
-                SetTestConfig(&testimpl.ThisTFModuleConfig{}).
-                SetTestConfigFolderName(testConfigsExamplesFolderDefault).
-                SetTestConfigFileName(infraTFVarFileNameDefault).
-                Build()
+	ctx := types.CreateTestContextBuilder().
+		SetTestConfig(&testimpl.ThisTFModuleConfig{}).
+		SetTestConfigFolderName(testConfigsExamplesFolderDefault).
+		SetTestConfigFileName(infraTFVarFileNameDefault).
+		Build()
 
-        lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposableComplete)
+	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposableComplete)
 }
